@@ -1,0 +1,30 @@
+[package]
+name = "pinocchio-template"
+version = "0.1.0"
+edition = "2021"
+
+no-entrypoint = []
+test-sbf = [] # Wraps all tests under cargo test-sbf
+
+[lints.rust.unexpected_cfgs]
+level = "warn"
+check-cfg = [
+  'cfg(feature, values("custom-heap", "custom-panic"))',
+  'cfg(target_os, values("solana"))',
+]
+
+[lib]
+crate-type = ["cdylib", "lib"]
+feature = ["decode"]
+
+[dependencies]
+pinocchio = { version = "0.10.1", features = ["cpi"] }
+solana-address = { version = "2.0.0", features = ["decode"]} # Dependency of Pinocchio, but does this to access the "decode" with enables str Address handling.
+solana-program-log = "1.1.0"
+
+[dev-dependencies]
+litesvm = "0.9.1"
+solana-sdk = "3.0.0"
+solana-system-interface = "3.0.0"
+spl-associated-token-account-interface = "2.0.0"
+spl-token-interface = "2.0.0"
