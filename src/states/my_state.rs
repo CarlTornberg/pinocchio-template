@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use crate::{helpers::Transmutable, types::{F32Bytes, U64Bytes}};
 
 pub struct MyState {
