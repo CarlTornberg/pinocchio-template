@@ -17,7 +17,8 @@ use solana_address::address_eq;
 use solana_program_log::log;
 use crate::interface::ProgramInstructions;
 
-solana_address::declare_id!("GJJuYV5QA1Lt9Ht5rdmVgvXdgjTJDe7nfJQ47YLvdstV");
+pinocchio::address::declare_id!("GJJuYV5QA1Lt9Ht5rdmVgvXdgjTJDe7nfJQ47YLvdstV");
+
 
 nostd_panic_handler!();
 entrypoint!(process_instruction);
