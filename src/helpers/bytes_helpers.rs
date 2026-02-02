@@ -13,7 +13,6 @@ use crate::errors::CustomError;
 pub unsafe trait Transmutable { 
     const LEN: usize;
 
-
     #[inline(always)]
     fn as_bytes(&self) -> &[u8] where Self: Sized {
         as_bytes(self)
